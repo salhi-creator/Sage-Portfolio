@@ -1,0 +1,21 @@
+.not-found {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+.not-found__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+
+.not-found__code {
+  font-size: var(--fs-2xl);
+  color: var(--color-accent);
+}
+
+.not-found__text {
+  color: var(--color-text-secondary);
+}

@@ -1,0 +1,25 @@
+.exploring-list {
+  max-width: 520px;
+}
+
+.exploring-list__item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-5);
+  padding-block: var(--space-4);
+  border-top: var(--border-width) solid var(--color-border);
+}
+
+.exploring-list__item:last-child {
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.exploring-list__index {
+  color: var(--color-text-tertiary);
+  font-size: var(--fs-xs);
+}
+
+.exploring-list__label {
+  font-size: var(--fs-md);
+  color: var(--color-text-primary);
+}

@@ -1,0 +1,13 @@
+.work-page__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-xs);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-7);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.work-page__back:hover {
+  color: var(--color-accent);
+}
