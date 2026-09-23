@@ -62,3 +62,9 @@ edit there to reskin the whole site consistently. Dark mode is the default
 identity; the toggle persists to `localStorage`.
 
 All motion respects `prefers-reduced-motion`.
+
+
+
+
+
+also if you want the email box messages reaches your actual email make sure to sign in WEB3Forms (it's BaaS of handling the frontEnd messages sent to emails that part of its job) then replace the ENV VITE_WEB3FORMS_ACCESS_KEY with your api_key and your done 
