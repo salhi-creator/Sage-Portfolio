@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://example.com/</loc></url>
-  <url><loc>https://example.com/work</loc></url>
-  <url><loc>https://example.com/projects/sage-blocker</loc></url>
-  <url><loc>https://example.com/projects/vesper</loc></url>
-  <url><loc>https://example.com/projects/zod-auto-schema</loc></url>
-  <url><loc>https://example.com/projects/hollow-signal</loc></url>
-  <url><loc>https://example.com/projects/signal-relay</loc></url>
-  <url><loc>https://example.com/projects/context-lens</loc></url>
+  <url><loc>https://sage-portfolio-eta.vercel.app/</loc></url>
+  <url><loc>https://sage-portfolio-eta.vercel.app/work</loc></url>
+  <url><loc>https://sage-portfolio-eta.vercel.app/sage-blocker</loc></url>
+  <url><loc>https://sage-portfolio-eta.vercel.app/vesper</loc></url>
 </urlset>
