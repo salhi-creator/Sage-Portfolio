@@ -28,9 +28,16 @@ export const projects: Project[] = [
     year: 2026,
     featured: true,
 
-    image:"/SageAwarePics/sageAware2.jpg",
+    image: "/SageAwarePics/sageAware2.jpg",
 
-    gallery:["/SageAwarePics/sageAware.jpg","/SageAwarePics/sageAware4.jpg","/SageAwarePics/sageAware5.jpg","/SageAwarePics/sageAware6.jpg","/SageAwarePics/sageAware7.jpg","/SageAwarePics/sageAware8.jpg"],
+    gallery: [
+      "/SageAwarePics/sageAware.jpg",
+      "/SageAwarePics/sageAware4.jpg",
+      "/SageAwarePics/sageAware5.jpg",
+      "/SageAwarePics/sageAware6.jpg",
+      "/SageAwarePics/sageAware7.jpg",
+      "/SageAwarePics/sageAware8.jpg",
+    ],
 
     motivation:
       "I wanted to build an alarm app that was more than a simple timer while learning how Android handles alarms, background processes, audio, and communication between React Native and native code.",
@@ -153,54 +160,6 @@ export const projects: Project[] = [
   },
 
   {
-    id: "my-first-3d-game",
-    title: "My First 3D Game",
-    slug: "my-first-3d-game",
-    image: "/godotProjectPics/godotPreview6.png",
-    gallery: [
-      "/godotProjectPics/godotPreview.png",
-      "/godotProjectPics/godotPreview2.png",
-      "/godotProjectPics/godotPreview3.png",
-      "/godotProjectPics/godotPreview4.png",
-      "/godotProjectPics/godotPreview5.png",
-      "/godotProjectPics/godotPreview6.png",
-      "/godotProjectPics/terrain.png",
-    ],
-    shortDescription:
-      "A small horror-inspired 3D game I built while learning the fundamentals of 3D game development with Godot.",
-
-    description:
-      "My First 3D Game is a small horror-inspired project built as my introduction to 3D game development. I used it to learn how 3D environments, terrain, player movement, collisions, lighting, animation, water, and other gameplay systems come together to create a playable world.",
-
-    category: "Game",
-    technologies: ["Godot 4", "GDScript"],
-    status: "Experimental",
-    year: 2026,
-
-    motivation:
-      "I wanted to learn how 3D games are actually built by making one myself instead of only following tutorials. The goal was to experiment with the core systems needed to turn a 3D environment into a playable game.",
-
-    problem:
-      "3D game development introduced a completely different set of concepts from the web and mobile development I was already familiar with. I had to learn how environments, terrain, physics, collisions, player movement, animation, and other game systems interact in real time.",
-
-    solution:
-      "I built a small horror-inspired environment in Godot and gradually added the systems needed to explore it as a game. Rather than focusing on creating a large or polished game, I used the project to understand how the individual pieces of a 3D game fit together.",
-
-    challenges: [
-      "Learning Godot's 3D scene, node, physics, and collision systems.",
-      "Getting the player to move correctly across uneven terrain.",
-      "Building and shaping a 3D environment while keeping gameplay and exploration in mind.",
-      "Understanding how lighting, animation, water, and environmental elements contribute to the atmosphere.",
-    ],
-
-    lessons: [
-      "3D game development requires thinking about movement, physics, space, and collisions very differently from application development.",
-      "Building a small game from scratch made it much easier to understand how Godot's nodes, scenes, and systems work together.",
-      "A playable prototype is a useful way to learn game development because every new feature exposes another part of the engine.",
-    ],
-  },
-
-  {
     id: "my-telebot",
     title: "My-TeleBot",
     slug: "my-telebot",
@@ -289,6 +248,54 @@ export const projects: Project[] = [
     ],
     lessons: [
       "Treat a model's output like any other untrusted input — validate first, use second.",
+    ],
+  },
+
+  {
+    id: "my-first-3d-game",
+    title: "My First 3D Game",
+    slug: "my-first-3d-game",
+    image: "/godotProjectPics/godotPreview6.png",
+    gallery: [
+      "/godotProjectPics/godotPreview.png",
+      "/godotProjectPics/godotPreview2.png",
+      "/godotProjectPics/godotPreview3.png",
+      "/godotProjectPics/godotPreview4.png",
+      "/godotProjectPics/godotPreview5.png",
+      "/godotProjectPics/godotPreview6.png",
+      "/godotProjectPics/terrain.png",
+    ],
+    shortDescription:
+      "A small horror-inspired 3D game I built while learning the fundamentals of 3D game development with Godot.",
+
+    description:
+      "My First 3D Game is a small horror-inspired project built as my introduction to 3D game development. I used it to learn how 3D environments, terrain, player movement, collisions, lighting, animation, water, and other gameplay systems come together to create a playable world.",
+
+    category: "Game",
+    technologies: ["Godot 4", "GDScript"],
+    status: "Experimental",
+    year: 2026,
+
+    motivation:
+      "I wanted to learn how 3D games are actually built by making one myself instead of only following tutorials. The goal was to experiment with the core systems needed to turn a 3D environment into a playable game.",
+
+    problem:
+      "3D game development introduced a completely different set of concepts from the web and mobile development I was already familiar with. I had to learn how environments, terrain, physics, collisions, player movement, animation, and other game systems interact in real time.",
+
+    solution:
+      "I built a small horror-inspired environment in Godot and gradually added the systems needed to explore it as a game. Rather than focusing on creating a large or polished game, I used the project to understand how the individual pieces of a 3D game fit together.",
+
+    challenges: [
+      "Learning Godot's 3D scene, node, physics, and collision systems.",
+      "Getting the player to move correctly across uneven terrain.",
+      "Building and shaping a 3D environment while keeping gameplay and exploration in mind.",
+      "Understanding how lighting, animation, water, and environmental elements contribute to the atmosphere.",
+    ],
+
+    lessons: [
+      "3D game development requires thinking about movement, physics, space, and collisions very differently from application development.",
+      "Building a small game from scratch made it much easier to understand how Godot's nodes, scenes, and systems work together.",
+      "A playable prototype is a useful way to learn game development because every new feature exposes another part of the engine.",
     ],
   },
 ];
