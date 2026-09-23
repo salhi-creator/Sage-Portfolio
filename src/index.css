@@ -36,8 +36,34 @@ html {
   pointer-events: none;
   overflow: hidden;
   z-index: -1;
+    min-height: 100vh;
+
+      background-size: 300% 300%;
+
+  background: linear-gradient(
+    120deg,
+    #050505 0%,
+    #080604 35%,
+    #2a1f08 65%,
+    #bd9b2b 100%
+  );
+    animation: gradientMove 12s ease infinite;
+
 }
 
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
 .background-video {
   width: 100%;
@@ -52,6 +78,11 @@ html {
   inset: 0;
   background: rgba(0, 0, 0, 0.55);
 }
+
+#imageBG{
+
+}
+
 
 body {
   margin: 0;

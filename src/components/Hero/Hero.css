@@ -1,5 +1,6 @@
 .hero {
   padding-block: clamp(2.5rem, 8vw, 4.5rem) 1rem;
+  padding-bottom: 10rem;
 }
 
 .hero__grid {
@@ -181,12 +182,22 @@
   white-space: nowrap;
 }
 
+.hero__role--name {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 100;
+  color: #c9c9c986;
+  font-size: clamp(1rem, 2vw, 2.2rem);
+  
+  
+}
+
 .hero__role--primary {
   color: #d6ad55;
   font-size: clamp(1.5rem, 3vw, 2.8rem);
   font-weight: 600;
   
 }
+
 
 .hero__role--secondary {
   color: #fff;

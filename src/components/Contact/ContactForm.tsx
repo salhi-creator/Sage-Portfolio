@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { contact } from "../../data/contact";
+
 import "./ContactForm.css";
 
 interface FormState {
@@ -10,52 +10,117 @@ interface FormState {
 
 type FormErrors = Partial<Record<keyof FormState, string>>;
 
-const initialState: FormState = { name: "", email: "", message: "" };
+const initialState: FormState = {
+  name: "",
+  email: "",
+  message: "",
+};
+
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
 
 function validate(values: FormState): FormErrors {
   const errors: FormErrors = {};
-  if (!values.name.trim()) errors.name = "Please enter your name.";
+
+  if (!values.name.trim()) {
+    errors.name = "Please enter your name.";
+  }
+
   if (!values.email.trim()) {
     errors.email = "Please enter your email.";
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
     errors.email = "That doesn't look like a valid email.";
   }
-  if (!values.message.trim()) errors.message = "Let me know what you have in mind.";
+
+  if (!values.message.trim()) {
+    errors.message = "Let me know what you have in mind.";
+  }
+
   return errors;
 }
 
 export function ContactForm() {
   const [values, setValues] = useState<FormState>(initialState);
   const [errors, setErrors] = useState<FormErrors>({});
-  const [status, setStatus] = useState<"idle" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
+    "idle",
+  );
 
   function handleChange(field: keyof FormState, value: string) {
-    setValues((prev) => ({ ...prev, [field]: value }));
+    setValues((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+
+    // Clear the error for this field as the user fixes it.
+    if (errors[field]) {
+      setErrors((prev) => ({
+        ...prev,
+        [field]: undefined,
+      }));
+    }
+
+    if (status !== "idle") {
+      setStatus("idle");
+    }
   }
 
-  function handleSubmit(event: FormEvent) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
     const validationErrors = validate(values);
+
     setErrors(validationErrors);
-    if (Object.keys(validationErrors).length > 0) return;
 
-    // No backend is wired up here on purpose. The form validates, then
-    // opens a pre-filled email as a working default so it's useful out
-    // of the box. To connect a real backend or email service (Formspree,
-    // Resend, your own API route) later, replace this block with a
-    // fetch() call — `values` is already exactly what you'd send.
-    const subject = encodeURIComponent(`Portfolio message from ${values.name}`);
-    const body = encodeURIComponent(`${values.message}\n\n— ${values.name} (${values.email})`);
-    window.location.href = `mailto:${contact.email}?subject=${subject}&body=${body}`;
+    if (Object.keys(validationErrors).length > 0) {
+      return;
+    }
 
-    setStatus("sent");
-    setValues(initialState);
+    if (!WEB3FORMS_ACCESS_KEY) {
+      console.error("Missing VITE_WEB3FORMS_ACCESS_KEY environment variable.");
+
+      setStatus("error");
+      return;
+    }
+
+    setStatus("sending");
+
+    const formData = new FormData();
+
+    formData.append("access_key", WEB3FORMS_ACCESS_KEY);
+    formData.append("name", values.name);
+    formData.append("email", values.email);
+    formData.append("message", values.message);
+
+    // Optional: controls the subject you receive in your inbox.
+    formData.append("subject", `Portfolio message from ${values.name}`);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus("sent");
+        setValues(initialState);
+        setErrors({});
+      } else {
+        console.error("Web3Forms error:", result);
+        setStatus("error");
+      }
+    } catch (error) {
+      console.error("Failed to send contact form:", error);
+      setStatus("error");
+    }
   }
 
   return (
     <form className="contact-form" onSubmit={handleSubmit} noValidate>
       <div className="contact-form__field">
         <label htmlFor="cf-name">Name</label>
+
         <input
           id="cf-name"
           name="name"
@@ -66,6 +131,7 @@ export function ContactForm() {
           aria-invalid={Boolean(errors.name)}
           aria-describedby={errors.name ? "cf-name-error" : undefined}
         />
+
         {errors.name && (
           <p className="contact-form__error" id="cf-name-error">
             {errors.name}
@@ -75,6 +141,7 @@ export function ContactForm() {
 
       <div className="contact-form__field">
         <label htmlFor="cf-email">Email</label>
+
         <input
           id="cf-email"
           name="email"
@@ -85,6 +152,7 @@ export function ContactForm() {
           aria-invalid={Boolean(errors.email)}
           aria-describedby={errors.email ? "cf-email-error" : undefined}
         />
+
         {errors.email && (
           <p className="contact-form__error" id="cf-email-error">
             {errors.email}
@@ -94,6 +162,7 @@ export function ContactForm() {
 
       <div className="contact-form__field">
         <label htmlFor="cf-message">Message</label>
+
         <textarea
           id="cf-message"
           name="message"
@@ -103,6 +172,7 @@ export function ContactForm() {
           aria-invalid={Boolean(errors.message)}
           aria-describedby={errors.message ? "cf-message-error" : undefined}
         />
+
         {errors.message && (
           <p className="contact-form__error" id="cf-message-error">
             {errors.message}
@@ -110,12 +180,19 @@ export function ContactForm() {
         )}
       </div>
 
-      <button type="submit" className="btn btn--primary">
-        Send message
+      <button
+        type="submit"
+        className="btn btn--primary"
+        disabled={status === "sending"}
+      >
+        {status === "sending" ? "Sending..." : "Send message"}
       </button>
 
       <p className="contact-form__status mono" role="status" aria-live="polite">
-        {status === "sent" ? "Your email client should be open — thanks for reaching out." : ""}
+        {status === "sent" &&
+          "Message sent successfully. Thanks for reaching out!"}
+
+        {status === "error" && "Something went wrong. Please try again."}
       </p>
     </form>
   );

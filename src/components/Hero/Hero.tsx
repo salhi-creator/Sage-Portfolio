@@ -16,6 +16,9 @@ export function Hero() {
             </div>
 
             <div className="hero__profile-info">
+              <span className="hero__role hero__role--name">
+                Salhi akim 
+              </span>
               <span className="hero__role hero__role--primary">
                 Software Developer
               </span>

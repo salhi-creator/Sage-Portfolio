@@ -74,10 +74,8 @@ export function ProjectPage() {
         alt={project.title}
         onClose={() => setSelectedImage(null)}
       />
-      <div className="background">
-        <video autoPlay muted loop playsInline className="background-video">
-          <source src="/background.mp4" type="video/mp4" />
-        </video>
+      <div className="background imageBG">
+
 
         <div className="background-overlay" />
       </div>

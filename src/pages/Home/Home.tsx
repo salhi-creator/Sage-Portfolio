@@ -36,9 +36,6 @@ export function Home() {
   return (
     <>
       <div className="background">
-        <video ref={videoRef} autoPlay muted loop playsInline className="background-video">
-          <source src="/background.mp4" type="video/mp4" />
-        </video>
 
         <div className="background-overlay" />
       </div>
