@@ -40,7 +40,12 @@ export function ProjectArchive({ projects, showFilter = false, limit }: ProjectA
     ? (CATEGORY_FROM_PARAM[(searchParams.get("category") ?? "").toLowerCase()] ?? "All")
     : "All";
 
-  const featured = useMemo(() => projects.find((p) => p.featured), [projects]);
+  const featured = useMemo(
+    () => projects.find((p) => p.featured && p.status === "Completed")
+      ?? projects.find((p) => p.status === "Completed" && ["sagestore", "sageaware"].includes(p.id.toLowerCase()))
+      ?? projects.find((p) => p.status === "Completed"),
+    [projects],
+  );
   const featuredVisible = Boolean(
     featured && (!showFilter || activeCategory === "All" || activeCategory === featured.category),
   );
@@ -50,7 +55,12 @@ export function ProjectArchive({ projects, showFilter = false, limit }: ProjectA
     if (showFilter && activeCategory !== "All") {
       list = list.filter((p) => p.category === activeCategory);
     }
-    list = [...list].sort((a, b) => b.year - a.year);
+    const priority = (project: Project) =>
+      ["sagestore", "sageaware"].includes(project.id.toLowerCase()) ? 0 : 1;
+    list = [...list].sort((a, b) => {
+      const completionOrder = Number(b.status === "Completed") - Number(a.status === "Completed");
+      return completionOrder || priority(a) - priority(b) || b.year - a.year;
+    });
     if (limit) list = list.slice(0, limit);
     return list;
   }, [projects, featured, showFilter, activeCategory, limit]);

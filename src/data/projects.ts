@@ -298,6 +298,68 @@ export const projects: Project[] = [
       "A playable prototype is a useful way to learn game development because every new feature exposes another part of the engine.",
     ],
   },
+
+  {
+    id: "sagestore",
+    title: "SageStore",
+    slug: "sagestore",
+    image: "/sagestorePics/sagestorePreview.png",
+    gallery: [
+      "/sagestorePics/sagestorePreview.png",
+      "/sagestorePics/dashboard.png",
+      "/sagestorePics/login.png",
+      "/sagestorePics/admin.png",
+      "/sagestorePics/signup.png",
+      "/sagestorePics/analytics.png",
+      "/sagestorePics/sageAssistant.png",
+    ],
+
+    Link: "https://sage-store-seven.vercel.app",
+
+    shortDescription:
+      "A multi-seller SaaS platform that enables businesses to launch online stores, manage products and orders, and monitor store activity through an integrated dashboard.",
+
+    description:
+      "SageStore is a multi-seller e-commerce SaaS platform designed to simplify online store management. Sellers can create and manage their own stores, publish products, handle customer orders, and monitor store activity from a centralized dashboard. The platform also introduces SageAssistant AI, an intelligent assistant designed to help sellers understand their store data, analyze activity, and get actionable insights.",
+
+    category: "Web",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "AI Integration",
+    ],
+    status: "Completed",
+    year: 2026,
+
+    motivation:
+      "I wanted to build a SaaS product that addresses practical challenges faced by small businesses trying to establish an online presence. Instead of creating another standalone e-commerce website, I wanted to develop a platform where multiple sellers could independently manage their stores through a shared system.",
+
+    problem:
+      "Small businesses often face difficulties establishing and managing an online store, keeping track of products and orders, and understanding how customers interact with their products. Managing these operations across disconnected tools can make it harder to monitor business activity and make informed decisions.",
+
+    solution:
+      "I designed SageStore as a multi-tenant SaaS platform where each seller has an independent store and management dashboard. The platform brings product management, order handling, and store activity analytics into one place. I also integrated SageAssistant AI to provide sellers with a conversational interface for understanding their store data and receiving relevant insights.",
+
+    challenges: [
+      "Designing a multi-tenant architecture that keeps each seller's data isolated.",
+      "Building backend systems for managing products, orders, and seller accounts.",
+      "Structuring database operations to support multiple independent stores.",
+      "Implementing store activity tracking to collect and analyze product views and other events.",
+      "Integrating AI into the seller dashboard while controlling how it accesses and interprets business data.",
+      "Designing the platform to support future features without making the architecture difficult to maintain.",
+    ],
+
+    lessons: [
+      "Building a SaaS platform requires thinking beyond individual features and designing systems that can serve multiple independent customers.",
+      "Multi-tenant applications require careful database design and access control to maintain data isolation between sellers.",
+      "Collecting application events creates opportunities to turn raw activity into useful business analytics.",
+      "AI integration becomes more valuable when it can work with structured business data rather than relying only on general conversation.",
+      "Building a real product involves balancing functionality, scalability, maintainability, and the practical needs of its users.",
+    ],
+  },
 ];
 
 export function getProjectBySlug(slug: string): Project | undefined {
