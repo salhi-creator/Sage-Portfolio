@@ -51,6 +51,10 @@ html {
 
 }
 
+[data-theme="light"] .background {
+  background: linear-gradient(120deg, #f7f5ef 0%, #f5efe2 45%, #ead9b3 100%);
+}
+
 @keyframes gradientMove {
   0% {
     background-position: 0% 50%;
@@ -77,6 +81,10 @@ html {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.55);
+}
+
+[data-theme="light"] .background-overlay {
+  background: rgba(250, 249, 248, 0.32);
 }
 
 #imageBG{

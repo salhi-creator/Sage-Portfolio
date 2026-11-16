@@ -31,8 +31,37 @@
   gap: var(--space-3);
 }
 
+.home-projects {
+  position: relative;
+  background: linear-gradient(180deg, var(--color-surface) 0%, transparent 100%);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.home-projects .section-intro {
+  margin-bottom: var(--space-6);
+}
+
 .section-footer-action {
   margin-top: var(--space-7);
+  display: flex;
+  justify-content: center;
+}
+
+.home-projects__more {
+  min-height: 48px;
+  padding-inline: var(--space-6);
+  gap: var(--space-3);
+  font-size: var(--fs-base);
+  box-shadow: 0 8px 28px var(--color-accent-dim);
+}
+
+.home-projects__more svg {
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.home-projects__more:hover svg {
+  transform: translate(2px, -2px);
 }
 
 .experiments-grid {

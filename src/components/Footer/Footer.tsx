@@ -1,4 +1,5 @@
 import { siteMeta } from "../../data/siteConfig";
+import { Link } from "react-router-dom";
 import { contact } from "../../data/contact";
 import "./Footer.css";
 
@@ -21,6 +22,8 @@ export function Footer() {
         </div>
 
         <nav className="footer__links" aria-label="Footer">
+          <Link to="/reddit-terms">SagePoster terms &amp; privacy</Link>
+          <Link to="/reddit-terms-of-service">SagePoster Terms of Service</Link>
           {FOOTER_LINKS.map((link) => (
             <a
               key={link.key}

@@ -63,12 +63,12 @@ export function Home() {
         </div>
       </section>
 
-      <section id="work" className="section">
+      <section id="work" className="section home-projects">
         <div className="container">
           <div className="section-intro">
             <div className="section-intro__title">
-              <span className="eyebrow">Project index</span>
-              <h2 className="section-heading">What I'm building</h2>
+              <span className="eyebrow">Selected work · {projects.length} projects</span>
+              <h2 className="section-heading">Projects I've built</h2>
             </div>
             <p className="section-intro__meta">
               A selection of what I've shipped, broken, and rebuilt — across
@@ -76,11 +76,11 @@ export function Home() {
             </p>
           </div>
 
-          <ProjectArchive projects={projects} limit={2} />
+          <ProjectArchive projects={projects} limit={4} />
 
           <div className="section-footer-action">
-            <Link to="/work" className="btn btn--secondary">
-              View full archive <ArrowUpRight size={14} strokeWidth={1.5} />
+            <Link to="/work" className="btn btn--primary home-projects__more">
+              Explore all {projects.length} projects <ArrowUpRight size={16} strokeWidth={1.7} />
             </Link>
           </div>
         </div>

@@ -6,6 +6,8 @@ import { Home } from "./pages/Home/Home";
 import { Work } from "./pages/Work/Work";
 import { ProjectPage } from "./pages/Project/ProjectPage";
 import { NotFound } from "./pages/NotFound/NotFound";
+import { RedditTerms } from "./pages/RedditTerms/RedditTerms";
+import { RedditTermsOfService } from "./pages/RedditTerms/RedditTermsOfService";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/work" element={<Work />} />
           <Route path="/projects/:slug" element={<ProjectPage />} />
+          <Route path="/reddit-terms" element={<RedditTerms />} />
+          <Route path="/reddit-terms-of-service" element={<RedditTermsOfService />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

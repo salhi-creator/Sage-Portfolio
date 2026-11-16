@@ -1,0 +1,57 @@
+.reddit-terms__container {
+  max-width: 820px;
+}
+
+.reddit-terms__eyebrow {
+  margin-bottom: var(--space-3);
+  color: var(--color-accent);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--tracking-wide);
+}
+
+.reddit-terms__intro {
+  max-width: 66ch;
+  margin-top: var(--space-5);
+  color: var(--color-text-secondary);
+  font-size: var(--fs-lg);
+  line-height: 1.7;
+}
+
+.reddit-terms__section {
+  margin-top: var(--space-8);
+}
+
+.reddit-terms__section h2 {
+  margin-bottom: var(--space-3);
+  color: var(--color-text-primary);
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+}
+
+.reddit-terms__section p,
+.reddit-terms__source {
+  max-width: 76ch;
+  margin-top: var(--space-3);
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+.reddit-terms a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.reddit-terms__notice {
+  margin-top: var(--space-5);
+  padding: var(--space-4) var(--space-5);
+  border: var(--border-width) solid var(--color-border);
+  border-left: 3px solid var(--color-accent);
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.reddit-terms__source {
+  margin-top: var(--space-7);
+  font-size: var(--fs-sm);
+}
